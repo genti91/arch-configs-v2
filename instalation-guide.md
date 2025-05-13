@@ -33,3 +33,27 @@ mkdir -p ~/.local/share/fonts
 
 cp arch-configs/fonts/* ~/.local/share/fonts
 ```
+
+## Bluetooth setup
+
+```sh
+sudo pacman -S bluez bluez-utils blueman 
+
+systemctl start bluetooth.service
+
+systemctl enable bluetooth.service
+```
+
+## Hyprlock setup
+
+```sh
+sudo nvim /usr/lib/sddm/sddm.conf.d/default.conf
+
+[Autologin]
+User=franco
+Session=hyprland
+
+nvim /home/franco/.config/hypr/hyprland.conf
+
+exec-once = hyprlock
+```
